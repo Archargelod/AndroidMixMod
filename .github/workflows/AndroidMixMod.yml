@@ -7,8 +7,6 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     steps:
-      - name: Set env
-        run: echo "DOTNET_ROOT=/usr/lib/dotnet" >> $GITHUB_ENV
       - name: Clone repository
         uses: actions/checkout@v3
       - name: set up JDK 11
@@ -30,10 +28,7 @@ jobs:
           ndk-version: r26
           local-cache: true
       - name: Install dotnet runtime
-        uses: awalsh128/cache-apt-pkgs-action@latest
-        with:
-          packages: dotnet-runtime-6.0
-          version: 1.0
+        run: apt-get install dotnet-runtime-6.0
       - name: Download hearthstone apk
         run: |
           repo_dir=$(pwd)
