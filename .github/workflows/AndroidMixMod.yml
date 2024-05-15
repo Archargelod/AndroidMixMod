@@ -28,7 +28,7 @@ jobs:
           ndk-version: r26
           local-cache: true
       - name: Install dotnet runtime
-        run: sudo apt-get install dotnet-runtime-6.0
+        run: sudo apt-get install dotnet6
       - name: Download hearthstone apk
         run: |
           repo_dir=$(pwd)
